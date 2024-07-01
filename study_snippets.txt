@@ -1,0 +1,29 @@
+If you contribute to this file:
+  * DO NOT EDIT LINE 6 AND ABOVE (this section above asterisk line)
+  * ADD YOUR QUERY TO THE BOTTOM OF THE FILE
+  * COPY PASTE THE BELOW LINE OF ASTERISKS BENEATH YOUR QUERY
+  * ADD A COMMENT EXPLAINING THE GOAL OF THE QUERY
+
+p much... follow the patterns already in the file
+
+*********************************
+
+# Generate the numbers from 1 to 10 counting by 2
+seq(from = 1,  to = 10, by = 2)
+
+*********************************
+
+# Take the average of a vector without the NAs affecting it
+mean(heights, na.rm = TRUE)
+
+*********************************
+
+# Check if items are NA in a vector
+is.na(dollars_spent)
+
+*********************************
+
+# Pull the column dollars_spent from the data.frame my_data
+my_data$dollars_spent
+
+*********************************

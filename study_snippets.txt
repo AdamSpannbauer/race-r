@@ -102,7 +102,7 @@ max(values)
 
 *********************************
 
-# Find the median value
+# Find the 50th percentile
 median(values)
 
 *********************************

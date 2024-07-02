@@ -1,10 +1,12 @@
 library(shiny)
-library(shinythemes)
+# library(shinythemes)
 library(shinycssloaders)
+library(bslib)
 library(plotly)
 
 ui <- fluidPage(
-  theme = shinytheme("darkly"),
+  theme = bslib::bs_theme(preset = "darkly"),
+  # theme = shinytheme("darkly"),
   prismDependencies,
   tags$head(
     includeHTML("www/meta-tags.html"),
@@ -31,7 +33,6 @@ ui <- fluidPage(
       br(),
       hr(),
       h1(textOutput("timer"), style = "font-size: 9rem; font-weight: bold;"),
-      br(),
       uiOutput("progress_bar"),
       wellPanel(
         div(
@@ -39,8 +40,8 @@ ui <- fluidPage(
           withSpinner(
             uiOutput("prompt"),
             type = 2,
-            color = "#657DB4",
-            color.background = "#EEBC47",
+            color = "#EEBC47",
+            color.background = "#657DB4",
             proxy.height = "100px"
           ),
           textInput(
@@ -51,44 +52,49 @@ ui <- fluidPage(
         )
       ),
       fluidRow(
-        actionButton(
-          inputId = "start_btn",
-          label = "(re)Start!",
-          icon = icon("face-laugh-beam"),
-          class = "btn btn-primary"
-        ),
-        actionButton(
-          inputId = "stop_btn",
-          label = "Stop...",
-          icon = icon("face-meh"),
-          class = "btn btn-secondary"
-        ),
-        br(), br(),
-        textInput(
-          inputId = "player_name",
-          label = "Before you start!",
-          value = "Enter name for leaderboard",
-          placeholder = "Enter name for leaderboard"
+        column(
+          width = 12,
+          align = "center",
+          actionButton(
+            inputId = "start_btn",
+            label = "(re)Start!",
+            icon = icon("face-laugh-beam"),
+            class = "btn btn-primary"
+          ),
+          actionButton(
+            inputId = "stop_btn",
+            label = "Stop...",
+            icon = icon("face-meh"),
+            class = "btn btn-secondary"
+          ),
+          bslib::tooltip(
+            actionButton(
+              inputId = "intructions_btn",
+              label = "How to play!",
+              icon = icon("circle-question"),
+              class = "btn btn-warning"
+            ),
+            includeMarkdown("www/instructions.md"),
+            placement = "top"
+          ),
+          uiOutput("leadboard_name_input")
         )
       ),
       hr(),
+      uiOutput("leaderboard_ui"),
       div(
-        align = "left",
-        includeMarkdown("www/instructions.md")
-      ),
-      hr(),
-      fluidRow(
-        style = "margin-bottom: 32px;",
-        column(
-          width = 6,
-          h4("Leaderboard"),
-          tableOutput("leaderboard_dt")
-        ),
-        column(
-          width = 6,
-          plotlyOutput("scores_dist_plot")
+        align = "center",
+        tags$h4(
+          tags$a(
+            href = "https://github.com/AdamSpannbauer/raceR",
+            target = "_blank",
+            "Contribute code, prompts, and terms on",
+            icon("github"),
+            "Github!!"
+          )
         )
-      )
+      ),
+      br()
     ),
   )
 )

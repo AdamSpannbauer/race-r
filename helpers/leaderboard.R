@@ -2,7 +2,7 @@ library(googledrive)
 library(googlesheets4)
 library(plotly)
 
-GSHEETS_URL <- gsheet_url <- "https://docs.google.com/spreadsheets/d/18cwWpEqvfLgclJL2OGScl1Z3sdg2KOPv1o8RANrOvzs/edit?usp=sharing"
+GSHEETS_URL <- "https://docs.google.com/spreadsheets/d/1Jx1QFk2iW1rvoEM-p_MosxEkbK-vjvvsk6HKFez0D9Q/edit?usp=sharing"
 
 setup_gsheets_auth <- function() {
   # https://stackoverflow.com/a/59910070
@@ -31,8 +31,8 @@ plot_scores <- function(sheets_obj) {
     type = "scatter",
     mode = "lines",
     fill = "tozeroy",
-    line = list(color = "#657DB4"),
-    fillcolor = '#4b639c'
+    line = list(color = "#9ab1f5"),
+    fillcolor = '#657DB4aa'
   ) %>%
     layout(
       xaxis = list(
@@ -70,6 +70,6 @@ store_record <- function(sheets_obj, game_state, name) {
   sheet_append(
     ss = sheets_obj,
     data = row,
-    sheet = "sql-racer-times"
+    sheet = "r-racer-times"
   )
 }

@@ -8,7 +8,7 @@ server <- function(input, output, session) {
     start_time = Sys.time(),
     elapsed_time = Sys.time() - Sys.time(),
     current_problem = list(
-      prompt = "# queries with blanks will appear here",
+      prompt = "\t# Code snippets with blanks (░░░░░) will appear below\n\t# Type out the correct code to fill in the ░░░░░\n\t# Press (re)Start to begin",
       answer = NA_character_
     ),
     n_correct = 0,
@@ -49,8 +49,8 @@ server <- function(input, output, session) {
           answer = NA
         )
         if (HAS_SHEETS_CONNECTION) {
-          player_name <- input$player_name
-          if (player_name == "Enter name for leaderboard") {
+          player_name <- trimws(input$player_name)
+          if (player_name == "Enter name for leaderboard" | player_name == "") {
             player_name <- "Anonymous"
           }
           store_record(GSHEETS, game_state = RV, name = player_name)
@@ -96,6 +96,17 @@ server <- function(input, output, session) {
     prismCodeBlock(RV$current_problem$prompt)
   })
 
+  output$leadboard_name_input <- renderUI({
+    req(HAS_SHEETS_CONNECTION)
+
+    textInput(
+      inputId = "player_name",
+      label = "Before you start!",
+      value = "",
+      placeholder = "Enter name for leaderboard"
+    )
+  })
+
   output$leaderboard_dt <- renderTable(
     {
       req(HAS_SHEETS_CONNECTION)
@@ -117,5 +128,23 @@ server <- function(input, output, session) {
 
     RV$run_timer
     plot_scores(GSHEETS)
+  })
+
+  output$leaderboard_ui <- renderUI({
+    req(HAS_SHEETS_CONNECTION)
+
+    fluidRow(
+      column(
+        width = 6,
+        h4("Leaderboard"),
+        tableOutput("leaderboard_dt")
+      ),
+      column(
+        id = "plotly_time_dist",
+        width = 6,
+        plotlyOutput("scores_dist_plot")
+      ),
+      hr()
+    )
   })
 }

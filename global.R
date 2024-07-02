@@ -3,6 +3,7 @@ library(shinythemes)
 library(shinycssloaders)
 library(shinydashboard)
 library(htmltools)
+library(bslib)
 
 library(markdown)
 library(DT)
@@ -29,18 +30,17 @@ WINNING_NUMBER <- 10
 
 ALL_PROBLEMS <- gen_problems(QUIZ_TERMS_FILE, QUIZ_QUERIES_FILE, QUIZ_QUERIES_FILE_DELIM)
 
+GSHEETS <- NULL
 HAS_SHEETS_CONNECTION <- FALSE
 
-# TODO: make leaderboard work
-# GSHEETS <- NULL
-# if (dir.exists(".secrets")) {
-#   tryCatch(
-#     expr = {
-#       setup_gsheets_auth()
-#       GSHEETS <<- read_scores_sheets()
-#     },
-#     error = function(e) {}
-#   )
-# }
-#
-# HAS_SHEETS_CONNECTION <- !is.null(GSHEETS)
+if (dir.exists(".secrets")) {
+  tryCatch(
+    expr = {
+      setup_gsheets_auth()
+      GSHEETS <<- read_scores_sheets()
+    },
+    error = function(e) {}
+  )
+}
+
+HAS_SHEETS_CONNECTION <- !is.null(GSHEETS)

@@ -76,14 +76,19 @@ age_salary <- my_dataframe %>%
 
 *********************************
 
-# Sort my_dataframe by age in ascending order
-sorted_data <- my_dataframe %>%
+# Reorder my_dataframe by age in ascending order
+ordered_data <- my_dataframe %>%
   arrange(age)
 
 *********************************
 
+# Order the heights from smallest to largest
+sort(heights)
+
+*********************************
+
 # Calculate the total sales by region (ignore NAs)
-summary_data <- my_dataframe %>%
+total_by_region <- my_dataframe %>%
   group_by(region) %>%
   summarise(total_sales = sum(sales, na.rm = TRUE))
 

@@ -23,7 +23,173 @@ is.na(dollars_spent)
 
 *********************************
 
-# Pull the column dollars_spent from the data.frame my_data
+# Pull the column dollars_spent from the dataframe my_data
 my_data$dollars_spent
+
+*********************************
+
+# Combine first and last name into a single string
+paste(first_name, last_name)
+
+*********************************
+
+# Load the shiny library
+library(shiny)
+
+*********************************
+
+# Read a CSV file into a dataframe
+my_data <- read.csv("data.csv")
+
+*********************************
+
+# Filter rows where age is greater than 30
+filtered_data <- my_data %>%
+  filter(age > 30)
+
+*********************************
+
+# Take the sum of a vector without the NAs affecting it
+sum(heights, na.rm = TRUE)
+
+*********************************
+
+# Create a factr variable from a character vector
+factr_status <- factor(letter_grade)
+
+*********************************
+
+# Plot the distribution of heights
+# Use a graph that uses "bins"
+hist(heights)
+
+*********************************
+
+# Calculate the crrelation between two variables
+cor(variable1, variable2)
+
+*********************************
+
+# Pull the age and salary columns from my_dataframe
+age_salary <- my_dataframe %>%
+  select(age, salary)
+
+*********************************
+
+# Sort my_dataframe by age in ascending order
+sorted_data <- my_dataframe %>%
+  arrange(age)
+
+*********************************
+
+# Calculate the total sales by region (ignore NAs)
+summary_data <- my_dataframe %>%
+  group_by(region) %>%
+  summarise(total_sales = sum(sales, na.rm = TRUE))
+
+*********************************
+
+# Show the first 6 rows of my_dataframe
+head(my_dataframe)
+
+*********************************
+
+# Find the smallest value
+min(values)
+
+*********************************
+
+# Find the largest value
+max(values)
+
+*********************************
+
+# Find the median value
+median(values)
+
+*********************************
+
+# Show the current working directory
+getwd()
+
+*********************************
+
+# Create a simple linear regression model
+model <- lm(y ~ x, data = my_data)
+
+*********************************
+
+# Run an ANOVA on a linear model
+anova(model)
+
+*********************************
+
+# Write a dataframe to a CSV file
+write.csv(my_data, "output.csv", row.names = FALSE)
+
+*********************************
+
+# Create a repeated sequence of numbers
+repeated_sequence <- rep(1:3, times = 4)
+
+*********************************
+
+# Create a scatterplot of 2 numeric vectors
+plot(x = heights, y = weights)
+
+*********************************
+
+# Find the number of items in my_vector
+length(my_vector)
+
+*********************************
+
+# Read in objects from an `RData` file
+load("data.RData")
+
+*********************************
+
+# Find the number of NA values in a vector
+length(is.na(values))
+
+*********************************
+
+# Find the percentage of NA values in a vector
+mean(is.na(values))
+
+*********************************
+
+# How many items of `regions` are "North America"?
+length(regions == "North America")
+
+*********************************
+
+# What percent of `regions` are NOT "Asia Pacific"?
+mean(regions != "Asia Pacific")
+
+*********************************
+
+# What percent of heights are at least 6
+mean(heights >= 6)
+
+*********************************
+
+# How many heights are 12 or less
+length(heights <= 6)
+
+*********************************
+
+# Show the heights that are at least 6 tall
+heights[heights >= 6]
+
+*********************************
+
+# Show the heights that are equal to 8
+heights[heights == 8]
+
+*********************************
+
+# Show the heights that aren't NA
+heights[!is.na(heights)]
 
 *********************************

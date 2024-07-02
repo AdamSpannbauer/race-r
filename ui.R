@@ -86,7 +86,7 @@ ui <- fluidPage(
         align = "center",
         tags$h4(
           tags$a(
-            href = "https://github.com/AdamSpannbauer/raceR",
+            href = "https://github.com/AdamSpannbauer/race-r",
             target = "_blank",
             "Contribute code, prompts, and terms on",
             icon("github"),

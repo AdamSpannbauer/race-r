@@ -57,9 +57,18 @@ h1 {
     color: white !important;
 }
 
+
+.irs-handle {
+  width: 5.5rem !important;
+  height: 5.5rem !important;
+  background: url('slider-logo.png') no-repeat center center;
+  background-size: cover !important;
+  transform: translate(-10%, -88%);
+}
+
+/*
 .irs--shiny .irs-handle:before{
-  /*content:"🏃‍♂️️";*/
-  content:"favicon.ico"
+  content:"🏃‍♂️️";
   transform-origin: center;
   transform: translate(-50%, -50%);
   text-align:center;
@@ -73,6 +82,7 @@ h1 {
   margin: -15px 0 0 -15px;
   transform: scaleX(-1);
 }
+*/
 
 .irs--shiny .irs-handle{
   background-color: transparent !important;
@@ -90,9 +100,13 @@ h1 {
 }
 
 .irs--shiny .irs-bar{
-  background-color: #657DB4 !important;
-  border-top: 1px solid #657DB4 !important;
-  border-bottom: 1px solid #657DB4 !important;
+  background-color: #D34A7C !important;
+  border-top: 1px solid #D34A7C !important;
+  border-bottom: 1px solid #D34A7C !important;
+}
+
+.irs-line {
+  border: 0.1px #EEBC4755 solid !important;
 }
 
 .irs--shiny .irs-min, .irs--shiny .irs-max{

@@ -1,6 +1,6 @@
 parse_terms_file <- function(file_path) {
   terms <- readLines(file_path)
-  trimws(terms)
+  trimws(terms, which = "right")
 }
 
 

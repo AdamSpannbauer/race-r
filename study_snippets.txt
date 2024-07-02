@@ -44,28 +44,28 @@ my_data <- read.csv("data.csv")
 *********************************
 
 # Filter rows where age is greater than 30
-filtered_data <- my_data %>%
+over_thirty <- my_data %>%
   filter(age > 30)
 
 *********************************
 
-# Take the sum of a vector without the NAs affecting it
+# Find the total of a vector without the NAs affecting it
 sum(heights, na.rm = TRUE)
 
 *********************************
 
-# Create a factr variable from a character vector
+# Create a Factor variable from a character vector
 factr_status <- factor(letter_grade)
 
 *********************************
 
-# Plot the distribution of heights
+# Show the distribution of heights
 # Use a graph that uses "bins"
 hist(heights)
 
 *********************************
 
-# Calculate the crrelation between two variables
+# Calculate the Correlation between two variables
 cor(variable1, variable2)
 
 *********************************
@@ -84,13 +84,6 @@ ordered_data <- my_dataframe %>%
 
 # Order the heights from smallest to largest
 sort(heights)
-
-*********************************
-
-# Calculate the total sales by region (ignore NAs)
-total_by_region <- my_dataframe %>%
-  group_by(region) %>%
-  summarise(total_sales = sum(sales, na.rm = TRUE))
 
 *********************************
 
@@ -134,12 +127,12 @@ write.csv(my_data, "output.csv", row.names = FALSE)
 
 *********************************
 
-# Create a repeated sequence of numbers
-repeated_sequence <- rep(1:3, times = 4)
+# Create a vector that has 8 As in it
+my_As <- rep("A", times = 8)
 
 *********************************
 
-# Create a scatterplot of 2 numeric vectors
+# Create a scatter chart of 2 numeric vectors
 plot(x = heights, y = weights)
 
 *********************************

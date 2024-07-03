@@ -4,7 +4,6 @@ $
 >=
 <=
 !=
- >
 is.na
 !is.na
 na.rm

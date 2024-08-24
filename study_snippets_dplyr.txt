@@ -18,7 +18,7 @@ mean(heights, na.rm = TRUE)
 
 *********************************
 
-# Check what items are NA in a vector
+# Check if items are NA in a vector
 is.na(dollars_spent)
 
 *********************************
@@ -33,7 +33,7 @@ paste(first_name, last_name)
 
 *********************************
 
-# Load the shiny package
+# Load the shiny library
 library(shiny)
 
 *********************************
@@ -130,7 +130,7 @@ load("data.RData")
 *********************************
 
 # Find the number of NA values in a vector
-sum(is.na(values))
+length(is.na(values))
 
 *********************************
 
@@ -144,8 +144,8 @@ length(regions == "North America")
 
 *********************************
 
-# What percent of `regions` are NOT "Asia Pacfic"?
-mean(regions != "Asia Pacfic")
+# What percent of `regions` are NOT "Asia Pacific"?
+mean(regions != "Asia Pacific")
 
 *********************************
 
@@ -174,14 +174,19 @@ heights[!is.na(heights)]
 
 *********************************
 
-# Use a loop to print numbers 1 to 5
+# Use for loop to print numbers 1 to 5
 for(i in 1:5) {
   print(i)
 }
 
 *********************************
 
-# Use a loop to sum numbers 10 and below
+# Replace NAs with 0 in a vector
+vec <- ifelse(is.na(vec), 0, vec)
+
+*********************************
+
+# Use while loop to add up the numbers 1 to 10
 total <- 0
 i <- 1
 while(i <= 10) {
@@ -211,42 +216,42 @@ install.packages("dplyr")
 
 *********************************
 
-# Define a func to add two numbers
+# Define a function to add two numbers
 add_numbers <- function(x, y) {
   return(x + y)
 }
 
 *********************************
 
-# Is x positive?
+# Use an if statement to check if a value is positive
 if (x > 0) {
   print("Positive")
 }
 
 *********************************
 
-# Use a loop to print numbers from 1 to 5
+# Use a for loop to print numbers from 1 to 5
 for (i in 1:5) {
   print(i)
 }
 
 *********************************
 
-# Define a func to calculate the average of a vector
-calculate_avg <- function(vec) {
+# Define a function to calculate the avg of a vector
+calculate_mean <- function(vec) {
   return(mean(vec, na.rm = TRUE))
 }
 
 *********************************
 
-# Print a msg when x is NA
+# Use an if statement to check for NA values
 if (is.na(x)) {
   print("Value is NA")
 }
 
 *********************************
 
-# Use a loop to add elements of a vector
+# Use a for loop to add elements of a vector
 sum_vec <- 0
 for (i in vec) {
   sum_vec <- sum_vec + i
@@ -254,7 +259,7 @@ for (i in vec) {
 
 *********************************
 
-# Use a loop to calculate the square of numbers from 1 to 5
+# Use a for loop to calculate the square of numbers from 1 to 5
 squares <- c()
 for (i in 1:5) {
   squares <- c(squares, i^2)
@@ -262,14 +267,14 @@ for (i in 1:5) {
 
 *********************************
 
-# Define a func to check even or odd
+# Define a function to check if a number is even
 is_even <- function(x) {
   return(x %% 2 == 0)
 }
 
 *********************************
 
-# Generate a sequence of numbers and calculate their base 10 log
+# Generate a Sequence of numbers and calculate their base 10 log
 seq_numbers <- seq(from = 1, to = 10, by = 1)
 log_values <- log10(seq_numbers)
 
@@ -279,5 +284,60 @@ log_values <- log10(seq_numbers)
 df <- read.csv("data.csv")
 Correlation <- cor(df$v1, df$v2, use = "complete.obs")
 plot(df$v1, df$v2)
+
+*********************************
+
+# Filter rows where age is greater than 30
+over_thirty <- my_data %>%
+  filter(age > 30)
+
+*********************************
+
+# Pull the age and salary columns from my_dataframe
+age_salary <- my_dataframe %>%
+  select(age, salary)
+
+*********************************
+
+# Reorder my_dataframe by age in ascending order
+ordered_data <- my_dataframe %>%
+  arrange(age)
+
+*********************************
+
+# Create a new column by multiplying two columns
+df <- df %>%
+    mutate(new_col = col1 * col2)
+
+*********************************
+
+# Filter rows where a column is greater than a value
+df <- df %>%
+    filter(col > 10)
+
+*********************************
+
+# Select specific columns from a dataframe
+df <- df %>%
+    select(col1, col2, col3)
+
+*********************************
+
+# Arrange rows by a specific column
+df <- df %>%
+    arrange(col)
+
+*********************************
+
+# Summarize dataframe to get the avg of a column
+summary_df <- df %>%
+    summarise(mean_col = mean(col))
+
+*********************************
+
+# Group by a column and Summarize
+grouped_df <- df %>%
+    group_by(group_col) %>%
+    summarise(mean_col = mean(col))
 
 *********************************

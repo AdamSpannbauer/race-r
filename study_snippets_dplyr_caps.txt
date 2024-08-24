@@ -1,0 +1,425 @@
+If you contribute to this file:
+  * DO NOT EDIT LINE 6 AND ABOVE (this section above asterisk line)
+  * ADD YOUR QUERY TO THE BOTTOM OF THE FILE
+  * COPY PASTE THE BELOW LINE OF ASTERISKS BENEATH YOUR QUERY
+  * ADD A COMMENT EXPLAINING THE GOAL OF THE QUERY
+  * THE COMMENT SHOULD BE ALL CAPS TO REMAIN CONSISTENT AND SIMPLER PATTERN MATCHING
+
+p much... follow the patterns already in the file
+
+*********************************
+
+# GENERATE THE NUMBERS FROM 1 TO 10 COUNTING BY 2
+seq(from = 1,  to = 10, by = 2)
+
+*********************************
+
+# TAKE THE AVERAGE OF A VECTOR WITHOUT THE NAS AFFECTING IT
+mean(heights, na.rm = TRUE)
+
+*********************************
+
+# CHECK IF ITEMS ARE NA IN A VECTOR
+is.na(dollars_spent)
+
+*********************************
+
+# PULL THE COLUMN DOLLARS_SPENT FROM THE DATAFRAME MY_DATA
+my_data$dollars_spent
+
+*********************************
+
+# LOAD THE SHINY LIBRARY
+library(shiny)
+
+*********************************
+
+# READ A CSV FILE INTO A DATAFRAME
+my_data <- read.csv("data.csv")
+
+*********************************
+
+# FIND THE TOTAL OF A VECTOR WITHOUT THE NAS AFFECTING IT
+sum(heights, na.rm = TRUE)
+
+*********************************
+
+# CREATE A FACTOR VARIABLE FROM A CHARACTER VECTOR
+factr_status <- factor(letter_grade)
+
+*********************************
+
+# SHOW THE DISTRIBUTION OF HEIGHTS
+# USE A GRAPH THAT USES "BINS"
+hist(heights)
+
+*********************************
+
+# CALCULATE THE CORRELATION BETWEEN TWO VARIABLES
+cor(variable1, variable2)
+
+*********************************
+
+# ORDER THE HEIGHTS FROM SMALLEST TO LARGEST
+sort(heights)
+
+*********************************
+
+# SHOW THE FIRST 6 ROWS OF A DATAFRAME
+head(my_dataframe)
+
+*********************************
+
+# FIND THE SMALLEST VALUE
+min(values)
+
+*********************************
+
+# FIND THE LARGEST VALUE
+max(values)
+
+*********************************
+
+# FIND THE 50TH PERCENTILE
+median(values)
+
+*********************************
+
+# CREATE A SIMPLE LINEAR REGRESSION MODEL
+model <- lm(y ~ x, data = my_data)
+
+*********************************
+
+# CREATE A SCATTER CHART OF 2 NUMERIC VECTORS
+plot(x = heights, y = weights)
+
+*********************************
+
+# FIND THE NUMBER OF ITEMS IN MY_VECTOR
+length(my_vector)
+
+*********************************
+
+# FIND THE NUMBER OF NA VALUES IN A VECTOR
+sum(is.na(values))
+
+*********************************
+
+# FIND THE PERCENTAGE OF NA VALUES IN A VECTOR
+mean(is.na(values))
+
+*********************************
+
+# HOW MANY ITEMS OF `REGIONS` ARE "NORTH AMERICA"?
+sum(regions == "North America")
+
+*********************************
+
+# WHAT PERCENT OF `REGIONS` ARE NOT "North America"?
+mean(regions != "North America")
+
+*********************************
+
+# WHAT PERCENT OF HEIGHTS ARE AT LEAST 6
+mean(heights >= 6)
+
+*********************************
+
+# HOW MANY HEIGHTS ARE 12 OR LESS
+sum(heights <= 6)
+
+*********************************
+
+# SHOW THE HEIGHTS THAT ARE AT LEAST 6 TALL
+heights[heights >= 6]
+
+*********************************
+
+# SHOW THE HEIGHTS THAT ARE EQUAL TO 8
+heights[heights == 8]
+
+*********************************
+
+# SHOW THE HEIGHTS THAT AREN'T NA
+heights[!is.na(heights)]
+
+*********************************
+
+# REPLACE NAS WITH 0 IN A VECTOR
+vec <- ifelse(is.na(vec), 0, vec)
+
+*********************************
+
+# REPLACE NAS WITH 0 IN A VECTOR
+vec[is.na(vec)] <- 0
+
+*********************************
+
+# READ CSV FILE INTO A DATAFRAME
+df <- read.csv("data.csv")
+
+*********************************
+
+# INSTALL A PACKAGE FROM CRAN
+install.packages("dplyr")
+
+*********************************
+
+# DEFINE A FUNCTION TO ADD TWO NUMBERS
+add_numbers <- function(x, y) {
+  return(x + y)
+}
+
+*********************************
+
+# USE AN IF STATEMENT TO CHECK IF A VALUE IS POSITIVE
+if (x > 0) {
+  print("Positive")
+}
+
+*********************************
+
+# USE A FOR LOOP TO PRINT NUMBERS FROM 1 TO 5
+for (i in 1:5) {
+  print(i)
+}
+
+*********************************
+
+# DEFINE A FUNCTION TO CALCULATE THE AVG OF A VECTOR
+calculate_avg <- function(vec) {
+  total <- sum(vec)
+  n <- legnth(vec)
+
+  total / n
+}
+
+*********************************
+
+# USE AN IF STATEMENT TO CHECK FOR NA VALUES
+if (is.na(x)) {
+  print("Value is NA")
+}
+
+*********************************
+
+# GENERATE A SEQUENCE OF NUMBERS
+# THEN CALCULATE THEIR BASE 10 LOG
+numbers <- seq(from = 1, to = 10, by = 1)
+log_values <- log10(numbers)
+
+*********************************
+
+# LOAD A CSV FILE, CALCULATE CORRELATION, AND SHOW SCATTERCHART
+DF <- read.csv("data.csv")
+COR <- cor(df$v1, df$v2, use = "complete.obs")
+plot(x = DF$v1, y = DF$v2)
+
+*********************************
+
+# FILTER TO ROWS WHERE AGE IS GREATER THAN 30
+over_thirty <- my_data |>
+  filter(age > 30)
+
+*********************************
+
+# PULL THE AGE AND SALARY COLUMNS ONLY
+age_salary <- my_dataframe |>
+  select(age, salary)
+
+*********************************
+
+# REORDER BY AGE IN ASCENDING ORDER
+ordered_data <- my_dataframe |>
+  arrange(age)
+
+*********************************
+
+# REORDER BY AGE IN DESCENDING ORDER
+ordered_data <- my_dataframe |>
+  arrange(desc(age))
+
+*********************************
+
+# CREATE A NEW COLUMN BY MULTIPLYING TWO COLUMNS
+df <- df |>
+    mutate(area = l * w)
+
+*********************************
+
+# ONLY KEEP ROWS WITH SALES ABOVE 10
+df <- df |>
+    filter(sales > 10)
+
+*********************************
+
+# CHOOSE SPECIFIC COLUMNS FROM A DATAFRAME
+df <- df |>
+    select(col1, col2, col3)
+
+*********************************
+
+# SORT ROWS BY SALES
+df <- df |>
+    arrange(sales)
+
+*********************************
+
+# CALCULATE AVG GDP BY CONTINENT
+summary_df <- df |>
+    group_by(continent) |>
+    summarise(avg_gdp = mean(gdp))
+
+*********************************
+
+# CALCULATE TOTAL SALES BY REGION
+summary_df <- df |>
+    group_by(region) |>
+    summarise(total_sales = sum(sales))
+
+*********************************
+
+# SHOW JUST THE TEAM, PLAYER_NAME, AND POINTS
+# FOR THE TOP THREE SCORERS
+top_3 <- player_stats |>
+    select(team, player_name, points) |>
+    arrange(desc(points)) |>
+    head(3)
+
+*********************************
+
+# SHOW LAST 5 ITEMS IN THE DATA.FRAME
+player_stats |>
+    tail(3)
+
+*********************************
+
+# SHOW LAST 3 ITEMS OF THE VECTOR X
+tail(x, 3)
+
+*********************************
+
+# SHOW ALL PLAYERS THAT PLAY FOR "TEN", "ALA", OR "UGA"
+top_3 <- player_stats |>
+    select(team %in% c("TEN", "ALA", "UGA"))
+
+*********************************
+
+# COUNT HOW MANY ITEMS IN x ARE EQUAL TO "A", "B", OR "C"
+sum(x %in% c("A", "B", "C"))
+
+*********************************
+
+# WHAT PERCENT OF ITEMS IN x ARE EQUAL TO "A", "B", OR "C"
+mean(x %in% c("A", "B", "C"))
+
+*********************************
+
+# COUNT THE NUMBER OF ROWS IN DATAFRAME
+nrow(my_dataframe)
+
+*********************************
+
+# ADD UP THE NUMBER OF ROWS IN TWO DATAFRAMES
+nrow(DF1) + nrow(DF2)
+
+*********************************
+
+# SHOW THE TOP 3 SCORERS FOR THE TEAM "TEN"
+player_stats |>
+    filter(team == "TEN") |>
+    arrange(desc(points)) |>
+    head(3)
+
+*********************************
+
+# SHOW THE TOP 3 TEAMS BY TOTAL POINTS
+player_stats |>
+    group_by(team) |>
+    summarise(total_points = sum(points)) |>
+    arrange(desc(total_points)) |>
+    head(3)
+
+*********************************
+
+# SHOW THE AVG POINTS BY TEAM FOR TEAMS IN SEC CONFERENCE
+player_stats |>
+    filter(conference == "SEC") |>
+    group_by(team) |>
+    summarise(avg_points = mean(points))
+
+*********************************
+
+# SHOW THE AVG POINTS BY TEAM FOR TEAMS *NOT* IN SEC
+player_stats |>
+    filter(conference != "SEC") |>
+    group_by(team) |>
+    summarise(avg_points = mean(points))
+
+*********************************
+
+# SHOW THE 5 HIGHEST AVG POINTS BY TEAM
+# ONLY INCLUDE PLAYERS WITH AT LEAST 100 PTS
+player_stats |>
+    filter(points >= 100) |>
+    group_by(team) |>
+    summarise(avg_points = mean(points)) |>
+    arrange(desc(avg_points)) |>
+    head(5)
+
+*********************************
+
+# APPLY LOG10 TRANSFORM TO RIGHT SKEWED FEATURE
+player_stats |>
+    mutate(logged_pts = log10(points))
+
+*********************************
+
+# FILTER TO RECORDS WHERE CONFERENCE IS NOT NA
+player_stats |>
+    filter(!is.na(conference))
+
+*********************************
+
+# SHOW THE COLUMN NAMES FOR A DATA FRAME
+names(my_dataframe)
+
+*********************************
+
+# LOAD DATA
+df1 <- read.csv("my_data.csv")
+
+# SHOW NUMBER OF ROWS
+nrow(df1)
+
+# SHOW COLUMN NAMES
+names(df1)
+
+# PLOT HISTOGRAM OF FEATURE1
+hist(df1$feature1)
+
+*********************************
+
+# SHOW THE RANGE OF POINTS BY TEAM
+player_stats |>
+    group_by(team) |>
+    summarise(
+      least_pts = min(points),
+      most_pts = max(points)
+    )
+
+*********************************
+
+# FIT A LINEAR MODEL TO PREDICT POINTS
+# USE EVERY POSSIBLE COLUMN AS PREDICTORS
+my_model <- lm(points ~ ., data = player_stats)
+summary(my_model)
+
+*********************************
+
+# FIT A LINEAR MODEL TO PREDICT POINTS
+# USE CONFERENCE AND MINUTES AS PREDICTORS
+my_model <- lm(points ~ conference + minutes, data = player_stats)
+summary(my_model)
+
+*********************************
